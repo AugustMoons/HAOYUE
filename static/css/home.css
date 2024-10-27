@@ -1,0 +1,806 @@
+body{
+	--background-color-light: #ecefff;
+	--background-color-dark: #232323;
+	background-color: var(--background-color-light);
+}
+
+        /* 样式化包含折线图的容器 */
+        #chart-container {
+            width: 400px;
+            height: 200px;
+            position: relative;
+			top: 50%;
+			left: 50%;
+			transform: translate(-49.5%, -48.5%);
+            background-color: transparent;
+            border-radius: 10px; /* 设置圆润角 */
+            overflow: hidden; /* 隐藏图表超出容器的部分 */
+        }
+        #chart {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+.header {
+	--background-color-light: #fff;
+	--background-color-dark: #666;
+			margin-left: 20px;
+			margin-right: 20px;
+			margin-top: 15px;
+            background-color: var(--background-color-light);
+            box-shadow: 10px 7px 20px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+			border-bottom-right-radius: 20px;
+			border-bottom-left-radius: 20px;
+			border-top-left-radius: 20px;
+			border-top-right-radius: 20px;
+        }
+
+.userico_options {
+    position: absolute;
+    top: 40px; /* 调整弹出位置 */
+    right: 0;
+    display: none;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.userico_options ul {
+    list-style-type: none;
+    padding: 0;
+    white-space: nowrap; /* 防止换行 */
+}
+
+.userico_options ul li {
+    /*display: inline-block;  横向排列 */
+    font-family: "黑体", sans-serif; /* 设置字体为黑体 */
+    font-size: 20px; /* 设置字号为24px */
+    font-weight: bold; /* 设置加粗 */
+    color: black; /* 设置颜色为黑色 */
+    padding: 10px 20px; /* 设置内边距，使文字与边框有一定间距 */
+}
+
+.userico_options ul li:hover {
+    background-color: #f0f0f0; /* 鼠标悬停时的背景色 */
+}
+.userico_options ul li a {
+    text-decoration: none; /* 去掉下划线 */
+    color: black; /* 设置链接文字颜色为黑色 */
+}
+
+.header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+.logo{
+			width: 250px;
+		}
+.hello_user{
+			position: absolute;
+			right: 11%;
+  font-size: 1.2em;
+  color: black;
+  font-weight: bold;
+		}
+/* 以下为user图标css */
+.userico{
+	--background-color-light: antiquewhite;
+	--background-color-dark: #999;
+			width: 35px;
+			height: 35px;
+			position: absolute;
+			right: 8%;
+			background-color: var(--background-color-light);
+			border-radius: 10px;
+			box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.3);
+		}
+		.userico_img{
+			position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);	
+		}
+/* 以下是相框组件 */
+
+.container {
+	--background-color-light: white;
+	--background-color-dark: #555;
+	position:absolute;
+	top: 190px;
+	left: 26%;
+    width: 205px;
+    height: 205px;
+    background-color: var(--background-color-light);
+    border-radius: 15px;
+    box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+	z-index: -100;
+}
+
+
+.inner-shadow {
+    position: absolute;
+	border-radius: 15px;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    left: 5px;
+    box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.3);
+	z-index: -100;		
+}
+
+.main:hover+.container{
+  transform: scale(1.1);
+}
+
+.main:hover+.inner-shadow{
+  transform: scale(1.1);
+}
+
+.container-user {
+	--background-color-light: white;
+	--background-color-dark: #555;
+	position:absolute;
+	top: 190px;
+	left: 42%;
+	right: 42%;
+    width: 205px;
+    height: 205px;
+    background-color: var(--background-color-light);
+    border-radius: 15px;
+    box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+	z-index: -100;	
+}
+
+
+.inner-shadow-user {
+    position: absolute;
+	border-radius: 15px;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    left: 5px;
+    box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.3);
+	z-index: -100;	
+}
+
+.container-user:hover{
+  transform: scale(1.1);
+}
+
+
+.container-import {
+	--background-color-light: white;
+	--background-color-dark: #555;
+	position:absolute;
+	top: 190px;
+	right: 26%;
+    width: 403px;
+    height: 205px;
+    background-color: var(--background-color-light);
+    border-radius: 15px;
+    box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+	z-index: -100;
+}
+
+
+.inner-shadow-import {
+    position: absolute;
+	border-radius: 15px;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    left: 5px;
+    box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.3);
+	z-index: -100;		
+}
+
+.container-import:hover{
+  transform: scale(1.08);
+}
+
+.container-data1 {
+	--background-color-light: white;
+	--background-color-dark: #555;
+	position:absolute;
+	top: 430px;
+	left: 26%;
+    width: 520px;
+    height: 205px;
+    background-color: var(--background-color-light);
+    border-radius: 15px;
+    box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+	z-index: -100;
+}
+
+
+.inner-shadow-data1 {
+    position: absolute;
+	border-radius: 15px;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    left: 5px;
+    box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.3);
+	z-index: -100;		
+}
+
+.container-data1:hover{
+  transform: scale(1.08);
+}
+
+.container-data2 {
+	--background-color-light: white;
+	--background-color-dark: #555;
+	position:absolute;
+	top: 430px;
+	right: 26%;
+    width: 520px;
+    height: 205px;
+    background-color: var(--background-color-light);
+    border-radius: 15px;
+    box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+	z-index: -100;
+}
+
+
+.inner-shadow-data2 {
+    position: absolute;
+	border-radius: 15px;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    left: 5px;
+    box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.3);
+	z-index: -100;		
+}
+
+.container-data2:hover{
+  transform: scale(1.08);
+}
+
+.container-data3 {
+	--background-color-light: white;
+	--background-color-dark: #555;
+	position:absolute;
+	top: 670px;
+	left: 26%;
+    width: 48%;
+    height: 350px;
+    background-color: var(--background-color-light);
+    border-radius: 15px;
+    box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+	z-index: -100;
+}
+
+
+.inner-shadow-data3 {
+    position: absolute;
+	border-radius: 15px;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    left: 5px;
+    box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.3);
+	z-index: -100;		
+}
+
+.container-data3:hover{
+  transform: scale(1.04);
+}
+
+.tools {
+ display: flex;
+ align-items: center;
+ padding: 3px;
+}
+
+.circle {
+ padding: 0 4px;
+}
+
+.box {
+ display: inline-block;
+ align-items: center;
+ width: 10px;
+ height: 10px;
+ padding: 1px;
+ border-radius: 50%;
+}
+
+.red {
+ background-color: #ff605c;
+}
+		
+.red::before {
+    content: "✖";
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-45%, -55%);
+    font-size: 8px;
+    color: white; 
+}
+
+.red:hover::before {
+    display: block;
+}
+.yellow {
+ background-color: #ffbd44;
+}
+
+.yellow::before {
+    content: "●";
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-47%, -59%);
+    font-size: 10px;
+    color: white; 
+}
+
+.yellow:hover::before {
+    display: block;
+}
+
+.green {
+ background-color: #00ca4e;
+}
+
+.green::before {
+    content: "✓"; 
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-45%, -55%);
+    font-size: 8px; 
+    color: white; 
+}
+
+.green:hover::before {
+    display: block;
+}
+		
+.red:hover {
+	transform: scale(1.2)
+}
+.yellow:hover {
+	transform: scale(1.2)
+}
+.green:hover {
+	transform: scale(1.2)
+}
+/* 遮罩层样式 */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 1000;
+        }
+
+/* 模态框样式 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	z-index: 1000;
+        }
+/* 以下为主题开关css */
+.switch {
+  margin-right: 20px;
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 64px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #73C0FC;
+  transition: .4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 30px;
+  width: 30px;
+  border-radius: 20px;
+  left: 2px;
+  bottom: 2px;
+  z-index: 2;
+  background-color: #e8e8e8;
+  transition: .4s;
+}
+
+.sun svg {
+  position: absolute;
+  top: 6px;
+  left: 36px;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+}
+
+.moon svg {
+  fill: #73C0FC;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+}
+
+/* .switch:hover */.sun svg {
+  animation: rotate 15s linear infinite;
+}
+
+@keyframes rotate {
+ 
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* .switch:hover */.moon svg {
+  animation: tilt 5s linear infinite;
+}
+
+@keyframes tilt {
+ 
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-10deg);
+  }
+
+  75% {
+    transform: rotate(10deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.input:checked + .slider {
+  background-color: #183153;
+}
+
+.input:focus + .slider {
+  box-shadow: 0 0 1px #183153;
+}
+
+.input:checked + .slider:before {
+  transform: translateX(30px);
+}
+
+/* 以下是快速启动组件css */
+.main_back { 
+	--background-color-light1: inset 0px 0px 180px 5px #ffffff;
+	--background-color-light2: linear-gradient(270deg, #03a9f4, #cc39a4, #ffb5d2);
+	--background-color-dark: #777;
+	position: absolute;
+	border-radius: 10px;
+	transform: rotate(90deg);
+	width: 11em; 
+	height: 11em;
+	background: var(--background-color-light2);
+	z-index: -2;
+	box-shadow:  var(--background-color-light1);
+}
+.main {
+position:absolute;
+top: 202px;
+left: 25.5%;
+display: flex;
+flex-wrap: wrap;
+width: 14em;
+align-items: center;
+justify-content: center;
+z-index: -1;
+}
+
+.card {
+width: 60px;
+height: 60px;
+border-top-left-radius: 0px;
+background: lightgrey;
+transition: .4s ease-in-out, .2s background-color ease-in-out, .2s background-image ease-in-out;
+background: rgba(255, 255, 255, 0.596);
+backdrop-filter: blur(5px);
+border: 0px solid transparent;
+-webkit-backdrop-filter: blur(5px);
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.text {
+	--color-light: black;
+	--color-dark: black;
+  position: absolute;
+  font-size: 1.1em;
+  transition: .2s ease-in-out;
+  color: var(--color-light);
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 0.33em;
+  z-index: 3;
+}
+
+.card:nth-child(2) {
+  border-radius: 0px;
+}
+
+.card:nth-child(2) .zhijianmf {
+  opacity: 0;
+  transition: .2s ease-in-out;
+}
+
+.card:nth-child(3) {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 0px;
+}
+
+.card:nth-child(3) .haoyuedoc {
+  opacity: 0;
+  transition: .2s ease-in-out;
+}
+
+.card:nth-child(4) {
+  border-radius: 0px;
+}
+
+.card:nth-child(4) .cloudreve {
+  opacity: 0;
+  transition: .2s ease-in-out;
+
+}
+
+.card:nth-child(5) {
+  border-radius: 0px;
+}
+
+.card:nth-child(5) .tenxundoc {
+  opacity: 0;
+  transition: .2s ease-in-out;
+}
+
+.card:nth-child(6) {
+  border-radius: 0px;
+}
+
+.card:nth-child(6) .baotaomonitor {
+  opacity: 0;
+  transition: .2s ease-in-out;
+
+}
+
+.card:nth-child(7) {
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 0px;
+}
+
+.card:nth-child(7) .github {
+  opacity: 0;
+  transition: .2s ease-in-out;
+  fill: black;
+}
+
+.card:nth-child(8) {
+  border-radius: 0px;
+}
+
+.card:nth-child(8) .horongpt {
+  opacity: 0;
+  transition: .2s ease-in-out;
+}
+
+.card:nth-child(9) {
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 0px;
+}
+
+.card:nth-child(9) .bayue {
+  opacity: 0;
+  transition: .2s ease-in-out;
+}
+
+.main:hover {
+  top:190px;
+  width: 14em;
+  cursor: pointer;
+}
+
+.main:hover .main_back {
+  opacity: 0;
+}
+
+.main:hover .card {
+  margin: .2em;
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+
+.main .card:nth-child(5) {
+  border: transparent;
+}
+
+.main .qingzhouyun {
+  opacity: 0;
+}
+
+.main .zhijianmf {
+  opacity: 0;
+}
+
+.main .haoyuedoc {
+  opacity: 0;
+}
+
+.main .cloudreve {
+  opacity: 0;
+}
+
+.main .tenxundoc {
+  opacity: 0;
+}
+
+.main .baotaomonitor {
+  opacity: 0;
+}
+
+.main .github {
+  opacity: 0;
+}
+
+.main .horongpt {
+  opacity: 0;
+}
+
+.main .bayue {
+  opacity: 0;
+}
+
+.main:hover .text {
+  opacity: 0;
+  z-index: -3;
+}
+
+.main:hover .qingzhouyun {
+  opacity: 1;
+}
+
+.main:hover .zhijianmf {
+  opacity: 1;
+}
+
+.main:hover .haoyuedoc {
+  opacity: 1;
+}
+
+.main:hover .cloudreve {
+  opacity: 1;
+}
+
+.main:hover .tenxundoc {
+  opacity: 1;
+}
+
+.main:hover .baotaomonitor {
+  opacity: 1;
+}
+
+.main:hover .github {
+  opacity: 1;
+}
+
+.main:hover .horongpt {
+  opacity: 1;
+}
+
+.main:hover .bayue {
+  opacity: 1;
+}
+
+.card:nth-child(1):hover {
+  background-color: #cc39a4;
+}
+
+.card:nth-child(2):hover {
+  background-color: #03A9F4;
+}
+
+
+.card:nth-child(3):hover {
+  background-color: #ffb5d2;
+}
+
+
+.card:nth-child(4):hover {
+  background-color: #1E1F26;
+}
+
+
+.card:nth-child(5):hover {
+  background-color: #C615F6;
+}
+
+
+.card:nth-child(6):hover {
+  background-color: #8c9eff;
+}
+
+
+
+.card:nth-child(7):hover {
+  background-color: black;
+}
+
+.card:nth-child(7):hover .github {
+  fill: white;
+}
+
+.card:nth-child(8):hover {
+  background-color: #29b6f6;
+}
+
+
+
+.card:nth-child(9):hover {
+  background-color: rgb(255,69,0);
+}

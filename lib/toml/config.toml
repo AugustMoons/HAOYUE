@@ -1,0 +1,5 @@
+[smtp]
+smtp_server = 'smtp.qq.com'
+smtp_port = 587
+smtp_username = 'haoyuehl@qq.com'
+smtp_password = 'vdoorrqrxiiuebga'

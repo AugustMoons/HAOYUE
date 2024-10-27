@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>皓月互联集成管理平台</title>
+	<link rel="stylesheet" href="./static/css/home.css">
+	<!-- 引入 ApexCharts 库 -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+		
+    </style>
+</head>
+<body>
+	    <!----><div class="overlay" id="overlay"></div>
+    <div class="modal" id="modal">
+  <div class="tools">
+    <div class="circle">
+      	<span class="red box" onclick="closeModal()"></span>
+    </div>
+    <div class="circle">
+      <span class="yellow box" onclick="closeModal()"></span>
+    </div>
+    <div class="circle">
+      <span class="green box" onclick="closeModal()"></span>
+    </div>
+  					</div>
+  				<div class="card__content">
+					<p>今天有好好工作吗？魂淡！</p>
+  			</div>
+    </div>
+	<header class="header">
+    <div class="header-content">
+        <img src="./static/img/logo.svg" class="logo" alt="ERROR：LOGO无法正确加载">
+        <label class="hello_user">{{hellouser}}</label>
+        <div class="userico">
+            <a href="#">
+                <img src="static/img/icon/user.svg" width="30px" class="userico_img">
+            </a>
+            <div class="userico_options">
+                <!-- 选项列表内容 -->
+                <ul>
+                    <li><a href="Acceptable Use Policy.html"  target="_blank">团队首页</a></li>
+					<li><a href="">管理员面板</a></li>
+                    <li><a href="logoff">退出登陆</a></li>
+                </ul>
+            </div>
+        </div>
+        <label class="switch">
+            <span class="sun"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="#ffd43b"><circle r="5" cy="12" cx="12"></circle><path d="m21 13h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm-17 0h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm13.66-5.66a1 1 0 0 1 -.66-.29 1 1 0 0 1 0-1.41l.71-.71a1 1 0 1 1 1.41 1.41l-.71.71a1 1 0 0 1 -.75.29zm-12.02 12.02a1 1 0 0 1 -.71-.29 1 1 0 0 1 0-1.41l.71-.66a1 1 0 0 1 1.41 1.41l-.71.71a1 1 0 0 1 -.7.24zm6.36-14.36a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm0 17a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm-5.66-14.66a1 1 0 0 1 -.7-.29l-.71-.71a1 1 0 0 1 1.41-1.41l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.29zm12.02 12.02a1 1 0 0 1 -.7-.29l-.66-.71a1 1 0 0 1 1.36-1.36l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.24z"></path></g></svg></span>
+            <span class="moon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="m223.5 32c-123.5 0-223.5 100.3-223.5 224s100 224 223.5 224c60.6 0 115.5-24.2 155.8-63.4 5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6-96.9 0-175.5-78.8-175.5-176 0-65.8 36-123.1 89.3-153.3 6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"></path></svg></span>   
+            <input type="checkbox" class="input">
+            <span class="slider"></span>
+        </label>
+    </div>
+</header>
+
+	
+	<div class="main">
+	
+		<div class="card"><a href="https://console.cloud.9xia.top/admin/login/index">
+			<img class="qingzhouyun" src="static/img/qzy.png" width="30px" alt="轻舟云"></a>
+		</div>
+	
+	
+	
+		<div class="card"><a href="https://cloud.haoyue.ltd/HaOyUeLtD2023/#/customer-list?searchObj&page=1&limit=50&order=id&sort=DESC">
+			<img class="zhijianmf" src="static/img/mf.png" width="30px" alt="智简魔方"></a>
+		</div>
+	
+	
+	
+		<div class="card"><a href="https://doc.haoyue.ltd/">
+			<img class="haoyuedoc" src="static/img/onlylogo.svg" width="30px" alt="皓月文档站"></a>
+		</div>
+	
+	
+	
+		<div class="card"><a href="http://www.haoyue.ltd:5212/home?path=%2F">
+			<img class="cloudreve" src="static/img/cloudreve.svg" width="30px" alt="cloudreve"></a>
+		</div>
+
+	
+	
+		<div class="card"><a href="https://docs.qq.com/doc/DQlhtSUhzVEVYWUxp?scene=b3f1b12c8b3c63cd9abf6433rmIGr1&_t=1705677064198&u=946976a201e84bbb81c5413b173860bb">
+			<img class="tenxundoc" src="static/img/txword.svg"  width="30px" alt="腾讯文档"></a>
+		</div>
+	
+	
+	
+		<div class="card"><a href="http://monitor.cloud.9xia.top:51507/">
+			<img class="baotaomonitor" src="static/img/baota.svg" width="30px" alt="云安全监控"></a>
+		</div>
+	
+	
+	<a href="https://github.com/">
+		<div class="card">
+			<svg class="github" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px" height="30px"><path d="M15,3C8.373,3,3,8.373,3,15c0,5.623,3.872,10.328,9.092,11.63C12.036,26.468,12,26.28,12,26.047v-2.051 c-0.487,0-1.303,0-1.508,0c-0.821,0-1.551-0.353-1.905-1.009c-0.393-0.729-0.461-1.844-1.435-2.526 c-0.289-0.227-0.069-0.486,0.264-0.451c0.615,0.174,1.125,0.596,1.605,1.222c0.478,0.627,0.703,0.769,1.596,0.769 c0.433,0,1.081-0.025,1.691-0.121c0.328-0.833,0.895-1.6,1.588-1.962c-3.996-0.411-5.903-2.399-5.903-5.098 c0-1.162,0.495-2.286,1.336-3.233C9.053,10.647,8.706,8.73,9.435,8c1.798,0,2.885,1.166,3.146,1.481C13.477,9.174,14.461,9,15.495,9 c1.036,0,2.024,0.174,2.922,0.483C18.675,9.17,19.763,8,21.565,8c0.732,0.731,0.381,2.656,0.102,3.594 c0.836,0.945,1.328,2.066,1.328,3.226c0,2.697-1.904,4.684-5.894,5.097C18.199,20.49,19,22.1,19,23.313v2.734 c0,0.104-0.023,0.179-0.035,0.268C23.641,24.676,27,20.236,27,15C27,8.373,21.627,3,15,3z"></path></svg>
+		</div>
+	</a>
+	
+	
+		<div class="card"><a href="https://chat.horon.top/">
+
+			<img class="horongpt" src="static/img/horonGPT.png" width="30px" alt="HoronGPT"></a>
+		</div>
+	
+	
+	
+		<div class="card"><a href="http://www.eastaug.top/">
+			<img class="bayue" src="static/img/bayue.png" width="30px" alt="bayue"></a>
+		</div>
+	
+	
+	<p class="text">快速访问<br><br></p>
+	<div class="main_back"></div>
+</div>
+	
+	
+	
+<div class="container">
+    	<div class="inner-shadow"></div>
+	</div>
+<div class="container-user">
+    	<div class="inner-shadow-user">
+		<p>&nbsp;&nbsp;&nbsp;<strong>当前登录用户:</strong></p>
+	<p>&nbsp;&nbsp;&nbsp;{{g.user['username']}}</p>
+	<p>&nbsp;&nbsp;&nbsp;<strong>负责职位:</strong></p>
+	<p>&nbsp;&nbsp;&nbsp;{{g.user['work']}}</p>
+	</div>
+	</div>
+<div class="container-import">
+    	<div class="inner-shadow-import">
+	<!-- 在这里创建一个容器来容纳折线图 -->
+<div id="chart-container">
+    <div id="chart"></div>
+</div>
+
+	</div>
+	</div>
+<div class="container-data1">
+    	<div class="inner-shadow-data1">
+	<p>&nbsp;&nbsp;&nbsp;<strong>通告:</strong></p>
+			<p>&nbsp;&nbsp;&nbsp;{{message}}</p></div>
+	</div>
+<div class="container-data2">
+    	<div class="inner-shadow-data2"></div>
+	</div>
+<div class="container-data3">
+    	<div class="inner-shadow-data3"></div>
+	</div>
+<script src="./static/js/style.js"></script>
+<script src="./static/js/home.js"></script>
+</body>
+</html>

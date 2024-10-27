@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>皓月互联集成管理平台——注册账户</title>
+    <link rel="stylesheet" href="./static/css/login.css">
+	  <script>
+    function saveInputs() {
+      var inputs = document.querySelectorAll('input');
+      inputs.forEach(function(input) {
+        localStorage.setItem(input.id, input.value);
+      });
+    }
+
+    function restoreInputs() {
+      var inputs = document.querySelectorAll('input');
+      inputs.forEach(function(input) {
+        var savedValue = localStorage.getItem(input.id);
+        if (savedValue) {
+          input.value = savedValue;
+        }
+      });
+    }
+		  
+	window.onload = function() {
+            restoreInputs();
+        };
+  </script>
+</head>
+<body>
+    <img src="./static/img/logo.svg" class="logo" alt="ERROR：LOGO无法正确加载">
+	<a href="login"><button id="back-login">返回登录</button></a>
+
+    <div class="login-app">
+        <!-- 选择登录方式 -->
+        <div class="login-header" onclick="checkRadio()">
+		    <input type="radio" name="login-opt" id="superadmin" checked="checked">
+     		<label for="superadmin" class="s-btn">账户注册</label>
+    	</div>
+    		<!-- 登录表单 -->
+    		<div class="login-body">
+		        <div id="form-bar">
+        			<!-- 账号登录表单 -->
+        			<form class="u-form m-form" method="post" action="#">
+            			<input type="text" name="username" id="username" placeholder="请输入用户名">
+						<input type="text" name="email" id="email" placeholder="请输入邮箱地址">
+			            <input type="text" name="ecode" placeholder="请输入验证码"><button type="submit" class="vercode-btn" onclick="saveInputs()">获取验证码</button>
+						<input type="password" name="password1" placeholder="请输入密码">
+						<input type="password" name="password2" placeholder="请再次输入密码">
+						<input type="checkbox" name="" id="m-sure">
+            			<label for="m-sure" class="m-tobesure"><p>我已阅读并同意<a href="Terms Of Service.html">服务条款</a>和<a href="Privacy Policy.html">隐私权条款</a></p></label>
+						<label for="loginmsg" class="loginmsg" >{{msg}}</label>            			
+            			<button class="login-btn">注册并登录</button>
+        			</form>
+      			</div>
+      		</div>
+  		</div>
+	<script>
+    restoreInputs();
+  </script>
+	<script src="./static/js/login.js"></script>
+</body>
+</html>

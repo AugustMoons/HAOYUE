@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>皓月互联集成管理平台——超管登录</title>
+    <link rel="stylesheet" href="./static/css/login.css">
+	  <script>
+    function saveInputs() {
+      var inputs = document.querySelectorAll('input');
+      inputs.forEach(function(input) {
+        localStorage.setItem(input.id, input.value);
+      });
+    }
+
+    function restoreInputs() {
+      var inputs = document.querySelectorAll('input');
+      inputs.forEach(function(input) {
+        var savedValue = localStorage.getItem(input.id);
+        if (savedValue) {
+          input.value = savedValue;
+        }
+      });
+    }
+  </script>
+</head>
+<body>
+    <img src="./static/img/logo.svg" class="logo" alt="ERROR：LOGO无法正确加载">
+
+    <div class="login-app">
+        <!-- 选择登录方式 -->
+        <div class="login-header" onclick="checkRadio()">
+		    <input type="radio" name="login-opt" id="superadmin" checked="checked">
+     		<label for="superadmin" class="s-btn">超级管理员登录</label>
+    	</div>
+    		<!-- 登录表单 -->
+    		<div class="login-body">
+		        <div id="form-bar">
+        			<!-- 账号登录表单 -->
+        			<form class="u-form m-form" method="post" action="#">
+            			<input type="text" name="username" id="username" placeholder="请输入用户名或手机号">
+						<input type="text" name="email" id="email" placeholder="请输入邮箱地址">
+			            <input type="text" name="ecode" id="ecode" placeholder="请输入验证码"><button type="submit" class="vercode-btn" onclick="saveInputs()">获取验证码</button>
+						<input type="password" name="sid1" id="sid1" placeholder="请输入SID1">
+						<input type="password" name="sid2" id="sid2" placeholder="请输入SID2">
+						<input type="password" name="key" id="key" placeholder="请输入KEY">
+						<input type="password" name="password" placeholder="请输入密码">
+						<label for="loginmsg" class="loginmsg" >{{msg}}</label>            			
+            			<button class="login-btn">登录</button>
+        			</form>
+      			</div>
+      		</div>
+  		</div>
+	<script>
+    restoreInputs();
+  </script>
+	<script src="./static/js/login.js"></script>
+</body>
+</html>
